@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "\nWilliam Jackson\n",
+    "section": "",
+    "text": "William Jackson\n\n\n\n    \n    \n        \n    \n\n\n\n\n\n\nAbout Me\n\nMy name is William Jackson. I am in the MBA program at Cal Poly Pomona and planning on graduating this year, 2025. I also have a bachelor’s degree in Biological Science from CSUN (2012–2017).\nMy Resume: here\n\n \n\n\n\n    \n    \n        \n    \n\n\n\n\n\n\nCareer Aspirations\n\nMy short-term career ambitions are to get into management positions within the Quality Assurance department of pharmaceutical manufacturing. My long-term career ambitions is to eventually get into higher levels of operation or quality management. This would include Senior Director of Vice President of either operations or quality.\n\n\n    \n    \n        \n    \n\n\n\n\n\n\nExperience\n\nMost of my professional work experience has been in the quality of pharmaceutical and biotechnology manufacturing. This includes utilizing chemical and biological testing parameters to ensure finalized products meet specified internal quality demands as well as regulatory bodies such as the FDA. In the past few years, I have made a transition from chemical and biological quality testing to overall quality assurance of released products. These include understanding regulatory requirements for multiple global jurisdictions such as the US, Europe, Japan, and South America. My knowledge has expanded in ensuring that the manufacturing and quality parameters are met and that any elements that do not meet these standards are properly documented."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "Shiny Apps.html",
+    "href": "Shiny Apps.html",
+    "title": "Shiny Apps",
+    "section": "",
+    "text": "Overview\n\nShiny is a package in R studio that makes it easy to build interactive web applications directly from R. We have used shiny within Quarto to build an interactive dashboard.\n\n\n\nWhat is a Shiny App?\n\nA Shiny App is an application on a website that is built using R. It allows us to create an interactive web interfaces for our R code, and automatically updates the app’s content based on user inputs.\n\n\nlibrary(shiny)\n\nWarning: package 'shiny' was built under R version 4.4.3\n\n\n\nsliderInput(\"n\", \"Number of Points:\", min = 1, max = 100, value = 50)\n\n\nNumber of Points:\n\n\n\n\n\nui &lt;- fluidPage(\n  titlePanel(\"Dynamic Plot\"),\n  sidebarLayout(\n    sidebarPanel(\n      sliderInput(\"obs\", \"Number of observations:\", 1, 100, 50)\n    ),\n    mainPanel(\n      plotOutput(\"distPlot\")\n    )\n  )\n)\n\nserver &lt;- function(input, output) {\n  output$distPlot &lt;- renderPlot({\n    hist(rnorm(input$obs))\n  })\n}\n\nshinyApp(ui = ui, server = server)\n\nShiny applications not supported in static R Markdown documents\n\n\n\n\nConclusion\n\nShiny apps are a powerful tool for building interactive web applications directly from R, and when combines with Quarto, they allow you to create dynamic, interactive reports and dashboards. By leveraging Shiny’s reactive programming and Quarto’s flexible rendering capabilities, we can create sophisticated, real time data visualizations and applications."
+  },
+  {
+    "objectID": "Shiny Live.html",
+    "href": "Shiny Live.html",
+    "title": "Shiny Live",
+    "section": "",
+    "text": "Shinylive is a new approach for running Shiny apps directly in the browser serverless. Compare to Shiny apps that runs on a centralized server (like Posit Connect or shinyapps.io), and the browser acts as a “thin client” that communicates with that server to render content. All computation and data processing are done on the server, which can become overloaded if too many users connect simultaneously or if an app goes viral.\nWith Shinylive, the entire R environment—including your app code and dependencies—is moved into the browser. Users don’t need to install R or any packages. They simply visit a URL, and everything runs locally in their browser. This means there’s no need for a hosting server or infrastructure beyond serving the static files that make up the app.\nShinylive leverages WebAssembly to run R directly in the browser. When a user visits a Shinylive app. The app’s assets (HTML, JavaScript, and WebAssembly) are downloaded. A self-contained R session starts in the browser. The app becomes fully interactive—just like a traditional Shiny app."
+  },
+  {
+    "objectID": "Shiny Live.html#what-is-shinylive",
+    "href": "Shiny Live.html#what-is-shinylive",
+    "title": "Shiny Live",
+    "section": "",
+    "text": "Shinylive is a new approach for running Shiny apps directly in the browser serverless. Compare to Shiny apps that runs on a centralized server (like Posit Connect or shinyapps.io), and the browser acts as a “thin client” that communicates with that server to render content. All computation and data processing are done on the server, which can become overloaded if too many users connect simultaneously or if an app goes viral.\nWith Shinylive, the entire R environment—including your app code and dependencies—is moved into the browser. Users don’t need to install R or any packages. They simply visit a URL, and everything runs locally in their browser. This means there’s no need for a hosting server or infrastructure beyond serving the static files that make up the app.\nShinylive leverages WebAssembly to run R directly in the browser. When a user visits a Shinylive app. The app’s assets (HTML, JavaScript, and WebAssembly) are downloaded. A self-contained R session starts in the browser. The app becomes fully interactive—just like a traditional Shiny app."
+  },
+  {
+    "objectID": "Shiny Live.html#pro-and-con-of-shinylive",
+    "href": "Shiny Live.html#pro-and-con-of-shinylive",
+    "title": "Shiny Live",
+    "section": "Pro and Con of Shinylive",
+    "text": "Pro and Con of Shinylive\nPros of Shinylive: no server required which eliminate hosting costs and server management, easy to share by just sending someone a link; no need for them to install R or Shiny, scalable by design since all users run the app locally, no single server can be overwhelmed, fast and responsive after the initial load, the app responds immediately because it’s all local and it’s ideal for demos, teaching, and static data exploration especially when privacy or real-time data access isn’t needed.\nCons of Shinylive: since all app logic is exposed in the browser, anything you want to keep private (like API keys or proprietary algorithms) should not be included, the first visit may take a few seconds to load the required files, though this has greatly improved, some packages or system calls may not be supported in a browser-based R session and there’s no backend database or persistent storage unless you integrate external services (which reintroduces complexity)."
+  }
+]
